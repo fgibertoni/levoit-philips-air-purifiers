@@ -14,7 +14,7 @@ Two variants are supported via the `model:` option — both speak the identical
 
 
 > 🔒 The stock ESP32-C3 module has **secure boot enabled & enforced**, so it
-> cannot be reflashed. Wire your own ESP32-C3 to the MCU UART instead (see
+> cannot be reflashed. Wire your own ESP32-C3 or ESP32-S3 to the MCU UART instead (see
 > [Install New ESP32](#install-new-esp32)). Full protocol notes are below.
 
 ## Quick Facts
@@ -25,7 +25,7 @@ Two variants are supported via the `model:` option — both speak the identical
 | Brand | MUJI (Philips/Versuni OEM) |
 | Tested MCU FW | 0.1.9 / 0.2.1|
 | Stock ESP module | ESP32-C3-WROOM-02U (secure boot — locked) |
-| Replacement module | Seeed XIAO ESP32-C3 (or any ESP32-C3) |
+| Replacement module | Seeed XIAO ESP32-C3 (or any ESP32-C3 or ESP32-C3) |
 | MCU link | UART, 115200 8N1, `FE FF` protocol |
 | Fan speeds | 3 (Sleep / Medium / Turbo) + Auto on 651 |
 | PM sensor | PM1003 (AC0651 only) |
@@ -107,7 +107,9 @@ UART and park the stock module.
 - Seeed XIAO ESP32-S3
 
 **Wiring:** 4 wires — `+5V`, `GND`, `RX`, `TX`. In the example configs the C3 uses
-`GPIO20` = RX (MCU TX → ESP RX) and `GPIO21` = TX (ESP TX → MCU RX).
+`GPIO20` = RX (MCU TX → ESP RX) and `GPIO21` = TX (ESP TX → MCU RX). 
+In S3's example config the module uses `GPIO44` = RX (MCU TX → ESP RX) and
+`GPIO43` = TX (ESP TX → MCU RX). In Seeed XIAO ESP32-S3, GPIO44 is D7 and GPIO43 is D6.  
 
 > The RX/TX pads are **not** on the pin header — use the test pads near the original ESP32 on the board.
 > Pull the `EN` pin of the original ESP32 to GND to disable it so it stops driving the bus.
