@@ -82,17 +82,28 @@ solder the wires for the new ESP32.
 Solder 4 wires to the PCB test pads: **`+5V`, `GND`, `RX`, `TX`**. The RX/TX pads
 are **not** on the pin header — use the test pads near the original ESP32.
 
+### AC0650
+![AC0650 PCB — all relevant pins](./images/ac0650_wiring.jpg)
+![AC0650 PCB - Close up](./images/ac0650_pcb_closer.jpg)
+
+### AC0651
 ![AC0651 PCB — all relevant pins](./images/ac651_pcb_all_pins.jpg)
 ![UART pads (RX / TX)](./images/uart_pins.jpg)
 
 **Park the stock module.** Pull the original ESP32's `EN` pin to `GND` so it stops
 driving the UART bus, otherwise it will collide with your new module.
 
-![Connect EN to GND](./images/pcb_uart_en_to_gnd.jpg)
-![EN pin location](./images/en_pin.jpg)
+### AC0650 
+![AC0650 Connect EN to GND](./images/ac0650_pcb_uart_en_to_gnd.jpg)
+![AC0650 PCB - Close up tagged](./images/ac0650_wiring_closer.jpg)
+
+### AC0651
+![AC0651 Connect EN to GND](./images/pcb_uart_en_to_gnd.jpg)
+![AC0651 EN pin location](./images/en_pin.jpg)
 
 The finished install — new ESP32-C3 wired in alongside the parked stock module:
 
+![AC0650 final wiring](./images/ac0650_full_wiring.jpg)
 ![AC0650 with new ESP installed](./images/ac650_hacked_inside.jpg)
 ![AC0651 with new ESP installed](./images/ac651_hacked_inside.jpg)
 
@@ -117,7 +128,7 @@ In S3's example config the module uses `GPIO44` = RX (MCU TX → ESP RX) and
 ### Flashing ESPHome
 
 1. **Pick your config** by model:
-   - **AC0650** → [`philips-ac0650.yaml`](./philips-ac0650.yaml) (`model: AC0650`)
+   - **AC0650** → [`philips-ac0650.yaml`](./philips-ac0650.yaml) (`model: AC0650`, choose your ESP32 model)
    - **AC0651** → [`philips-ac0651-c3_dev.yaml`](./philips-ac0651-c3_dev.yaml)
      (`model: AC0651` — adds PM2.5, allergen index, Auto preset, standby sensor)
 
